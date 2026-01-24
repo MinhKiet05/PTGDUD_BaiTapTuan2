@@ -7,26 +7,25 @@
 </head>
 <body>
     <script>
-        var calcAverageHumanAge = (ages) =>{
-            var humanAges = ages.slice();
-            ages.forEach((item, index) =>{
-                if(item<=2){
-                    humanAges[index] = 2* item
-                }else{
-                    humanAges[index] = 16 + item * 4;
+        function whereAmI(lat, lng){
+            fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
+            .then(response =>{
+                if(!response.ok){
+                    throw new Error(`${response.status}`)       
                 }
+                return response.json()
             })
-            console.log(humanAges);
-            var adultAges = humanAges.filter(ages => (ages>=18))
-            console.log(adultAges);
-            var avgAdultAge = adultAges.reduce((sum,age) => sum + age,0) / adultAges.length;
-            console.log("Tuổi trung bình của người vị thành niên: "+ avgAdultAge);
-            
-        }   
-        calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3])
-        
+            .then(data =>{
+                console.log(data)
+                if (data.error) throw new Error(`${data.error.description}`);
+                console.log(`You are in ${data.city}, ${data.country}`);
+            })
+            .catch(err =>{
+                console.error(err);
+            })  
+        }
 
-    ;
+        whereAmI(52.508, 13.381);
     </script>
 </body>
 </html>
