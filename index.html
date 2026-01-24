@@ -7,34 +7,23 @@
 </head>
 <body>
     <script>
-        const dogs = [
-            { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
-            { weight: 8, curFood: 200, owners: ['Matilda'] },
-            { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
-            { weight: 32, curFood: 340, owners: ['Michael'] },
-        ];
-        dogs.forEach(dog => (dog.recFood = Math.trunc(dog.weight ** 0.75 * 28)));
-        dogSarah = dogs.find(dog => dog.owners.includes('Sarah'));
-        console.log(`Chó của Sarah ăn quá ${dogSarah.curFood > dogSarah.recFood ? 'nhiều' : 'ít'}`)
-
-        var ownersEatTooMuch = dogs.filter(dog => dog.curFood>dog.recFood).flatMap(dog => dog.owners);
-        var ownersEatTooLess = dogs.filter(dog => dog.curFood<dog.recFood).flatMap(dog => dog.owners);
-
-        console.log(`${ownersEatTooMuch.join(' and ')} cho ăn quá nhiều`)
-        console.log(`${ownersEatTooLess.join(' and ')} cho ăn quá ít`)
-
-        console.log(dogs.some(dog => dog.curFood===dog.recFood));
-        
-        var checkingEatOke = dog => dog.curFood > dog.recFood*0.9 && dog.curFood < dog.recFood*1.1
-        console.log(dogs.some(checkingEatOke));
-
-        var dogsEatingOke = dogs.filter(checkingEatOke);
-        console.log(dogsEatingOke);
-
-        var dogsSorted = dogs.slice().sort((a,b)=> a.recFood -b.recFood);
-        console.log(dogsSorted);
-        
-        
+        var calcAverageHumanAge = (ages) =>{
+            var humanAges = ages.slice();
+            ages.forEach((item, index) =>{
+                if(item<=2){
+                    humanAges[index] = 2* item
+                }else{
+                    humanAges[index] = 16 + item * 4;
+                }
+            })
+            console.log(humanAges);
+            var adultAges = humanAges.filter(ages => (ages>=18))
+            console.log(adultAges);
+            var avgAdultAge = adultAges.reduce((sum,age) => sum + age,0) / adultAges.length;
+            console.log("Tuổi trung bình của người vị thành niên: "+ avgAdultAge);
+            
+        }   
+        calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3])
         
 
     ;
