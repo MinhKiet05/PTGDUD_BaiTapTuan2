@@ -7,25 +7,24 @@
 </head>
 <body>
     <script>
-        function checkDogs(dogsJulia, dogsKate){
-            var dogsJuliaCorrected = dogsJulia.slice();
-            dogsJuliaCorrected.shift();
-            dogsJuliaCorrected.pop();
-            dogsJuliaCorrected.pop();
-            var allDogs = dogsJuliaCorrected.concat(dogsKate);
-            console.log(allDogs);
-            allDogs.forEach((item, index) => {
-                if(item >=3){
-                    console.log('Con chó thứ '+ (index + 1) +' là chó trưởng thành với '+ item +' tuổi')
-                } else {
-                    console.log('Con chó thứ '+ (index + 1) +' là chó con với '+ item +' tuổi')
-                }
-            });
-        }
-        var dogsJulia1 = [3, 5, 2, 12, 7]
-        var dogsKate1 = [4, 1, 15, 8, 3]
-        checkDogs(dogsJulia1,dogsKate1)
         
+        function calcAverageHumanAge(ages){
+            var humanAges = ages.slice();
+            ages.forEach((item, index) =>{
+                if(item<=2){
+                    humanAges[index] = 2* item
+                }else{
+                    humanAges[index] = 16 + item * 4;
+                }
+            })
+            console.log(humanAges);
+            var adultAges = humanAges.filter(ages => (ages>=18))
+            console.log(adultAges);
+            var avgAdultAge = adultAges.reduce((sum,age) => sum + age,0) / adultAges.length;
+            console.log("Tuổi trung bình của người vị thành niên: "+ avgAdultAge);
+            
+        }
+        calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3])
     </script>
 </body>
 </html>
