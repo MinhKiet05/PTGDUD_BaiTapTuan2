@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <script>
+    const Car = function (make, speed) {
+      this.make = make;
+      this.speed = speed;
+    };
+
+    // 2. Triển khai phương thức 'accelerate' (tăng tốc) vào prototype
+    Car.prototype.accelerate = function () {
+      this.speed += 10;
+      console.log(`${this.make} is going at ${this.speed} km/h`);
+    };
+
+    // 3. Triển khai phương thức 'brake' (phanh) vào prototype
+    Car.prototype.brake = function () {
+      this.speed -= 5;
+      console.log(`${this.make} is going at ${this.speed} km/h`);
+    };
+
+    // 4. Tạo 2 đối tượng Car và thử nghiệm
+    const bmw = new Car('BMW', 120);
+    const mercedes = new Car('Mercedes', 95);
+
+    // Thử nghiệm với BMW
+    console.log('--- Testing BMW ---');
+    bmw.accelerate(); 
+    bmw.accelerate(); 
+    bmw.brake();      
+    bmw.accelerate(); 
+
+    // Thử nghiệm với Mercedes
+    console.log('--- Testing Mercedes ---');
+    mercedes.brake();     
+    mercedes.brake();      
+    mercedes.accelerate();
+    mercedes.brake();   
+  </script>
+</body>
+
+</html>

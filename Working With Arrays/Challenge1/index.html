@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function checkDogs(dogsJulia, dogsKate){
+            var dogsJuliaCorrected = dogsJulia.slice();
+            dogsJuliaCorrected.shift();
+            dogsJuliaCorrected.pop();
+            dogsJuliaCorrected.pop();
+            var allDogs = dogsJuliaCorrected.concat(dogsKate);
+            console.log(allDogs);
+            allDogs.forEach((item, index) => {
+                if(item >=3){
+                    console.log('Con chó thứ '+ (index + 1) +' là chó trưởng thành với '+ item +' tuổi')
+                } else {
+                    console.log('Con chó thứ '+ (index + 1) +' là chó con với '+ item +' tuổi')
+                }
+            });
+        }
+        var dogsJulia1 = [3, 5, 2, 12, 7]
+        var dogsKate1 = [4, 1, 15, 8, 3]
+        checkDogs(dogsJulia1,dogsKate1)
+        
+    </script>
+</body>
+</html>

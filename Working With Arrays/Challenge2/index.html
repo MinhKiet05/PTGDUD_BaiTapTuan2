@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        function calcAverageHumanAge(ages){
+            var humanAges = ages.slice();
+            ages.forEach((item, index) =>{
+                if(item<=2){
+                    humanAges[index] = 2* item
+                }else{
+                    humanAges[index] = 16 + item * 4;
+                }
+            })
+            console.log(humanAges);
+            var adultAges = humanAges.filter(ages => (ages>=18))
+            console.log(adultAges);
+            var avgAdultAge = adultAges.reduce((sum,age) => sum + age,0) / adultAges.length;
+            console.log("Tuổi trung bình của người vị thành niên: "+ avgAdultAge);
+            
+        }
+        calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3])
+    </script>
+</body>
+</html>
